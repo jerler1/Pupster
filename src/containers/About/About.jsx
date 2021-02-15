@@ -1,13 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
+import Hero from "../../components/Hero/Hero";
 
-class About extends Component {
-    render() {
-        return (
-            <div>
-                
-            </div>
-        );
-    }
-}
+const About = () => {
+    return (
+        <div>
+            <Hero backgroundImage="https://i.imgur.com/qkdpN.jpg">
+                <h1>Welcome to Pupster</h1>
+                <h4>Where all the best doggies live!</h4>
+            </Hero>
+        </div>
+    );
+};
 
 export default About;
