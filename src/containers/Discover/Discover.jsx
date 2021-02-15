@@ -27,8 +27,9 @@ class Discover extends Component {
     this.setState({ match: false });
     const myNumber = Math.floor(Math.random() * 5 + 1);
     if (myNumber === 1) {
-      this.setState({ match: true, count: this.state.matchCount + 1 });
+      this.setState({ match: true, matchCount: this.state.matchCount + 1 });
     }
+    this.getNewDog();
   };
 
   render() {
@@ -43,34 +44,34 @@ class Discover extends Component {
                 style={{ height: 400 }}
               />
             </div>
-            <div className="row">
-              <div className="col-sm-3"></div>
-              <div className="col-sm-3 d-flex justify-content-start">
-                <button className="btn btn-danger" onClick={this.handleDislike}>
-                  Dislike
-                </button>
-              </div>
-              <div className="col-sm-3 d-flex justify-content-start">
-                <button className="btn btn-success" onClick={this.handleLike}>
-                  Like
-                </button>
-              </div>
+          </div>
+          <div className="row">
+            <div className="col-sm-3"></div>
+            <div className="col-sm-3 d-flex justify-content-start">
+              <button className="btn btn-danger" onClick={this.handleDislike}>
+                Dislike
+              </button>
             </div>
-            <div className="row">
-              <div className="col">
-                <h3 className="text-center">
-                  {this.state.matchCount} has liked you too!
-                </h3>
-              </div>
+            <div className="col-sm-3 d-flex justify-content-end">
+              <button className="btn btn-success" onClick={this.handleLike}>
+                Like
+              </button>
             </div>
-            <div className="row">
-              <div className="col">
-                {this.state.showAlert && (
-                  <div className="alert alert-success" role="alert">
-                    Awesome! That dog liked you too!{" "}
-                  </div>
-                )}
-              </div>
+          </div>
+          <div className="row">
+            <div className="col">
+              <h3 className="text-center">
+                {this.state.matchCount} has liked you too!
+              </h3>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col">
+              {this.state.match && (
+                <div className="alert alert-success" role="alert">
+                  Awesome! That dog liked you too!{" "}
+                </div>
+              )}
             </div>
           </div>
         </div>
